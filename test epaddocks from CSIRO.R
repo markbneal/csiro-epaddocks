@@ -38,5 +38,10 @@ ggplot(epaddocks_wgs84_sf)+
 
 ggmap(paddock_map)
 
-ggmap(paddock_map)+
-  geom_sf(data = epaddocks_wgs84_sf, inherit.aes = FALSE, color=alpha("red",0.2), fill=NA)
+p <- ggmap(paddock_map)+
+  geom_sf(data = epaddocks_wgs84_sf, inherit.aes = FALSE, color=alpha("red",0.2), fill=NA)+
+  xlab("Longitude")+
+  ylab("Latitude")
+p
+
+ggsave("paddock_map.png", p, height = 7, width = 7)
